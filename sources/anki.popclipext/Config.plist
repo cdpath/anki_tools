@@ -9,6 +9,8 @@
 			<string>anki.png</string>
 			<key>Shell Script File</key>
 			<string>anki.sh</string>
+			<key>Regular Expression</key>
+			<string>(?s)^(\w+?\s*?){1,2}$</string>
 			<key>Stoppable</key>
 			<true/>
 			<key>Title</key>
@@ -61,4 +63,3 @@
 	<integer>693</integer>
 </dict>
 </plist>
-
