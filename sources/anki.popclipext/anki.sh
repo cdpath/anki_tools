@@ -103,6 +103,9 @@ check_result()
         else
             msg=$(echo "$1" | perl -pe 's/^.*?(?<="error": ")(.*?[^\\])(?=[\."]).*?$/$1/' | sed -e 's/^"//' -e 's/"$//')
         fi
+        if [[ -z "$1" ]]; then
+            msg="Did you open anki?"
+        fi
         dialog "AnkiConnect" "$msg" 5
     fi
 }
