@@ -11,6 +11,7 @@ entry=$POPCLIP_TEXT
 safe_entry=$POPCLIP_URLENCODED_TEXT
 dict_svc=$POPCLIP_OPTION_DICT_SVC
 target_deck=$POPCLIP_OPTION_TARGET_DECK
+note_type=$POPCLIP_OPTION_NOTE_TYPE
 tag="PopClip"
 app_tag=${POPCLIP_APP_NAME// /_} # replace spaces with underscore
 
@@ -83,7 +84,7 @@ gen_post_data()
         "Front": "$entry",
         "Back": "$(look_up)"
       },
-      "modelName": "Basic",
+      "modelName": "$note_type",
       "deckName": "$target_deck",
       "tags": [
         "$tag",
