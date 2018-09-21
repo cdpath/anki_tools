@@ -12,7 +12,9 @@ safe_entry=$POPCLIP_URLENCODED_TEXT
 dict_svc=$POPCLIP_OPTION_DICT_SVC
 target_deck=$POPCLIP_OPTION_TARGET_DECK
 note_type=$POPCLIP_OPTION_NOTE_TYPE
-tag="PopClip"
+front_field=$POPCLIP_OPTION_FRONT_FIELD
+back_field=$POPCLIP_OPTION_BACK_FIELD
+tag=$POPCLIP_OPTION_TAG
 app_tag=${POPCLIP_APP_NAME// /_} # replace spaces with underscore
 
 
@@ -81,8 +83,8 @@ gen_post_data()
   "params": {
     "note": {
       "fields": {
-        "Front": "$entry",
-        "Back": "$(look_up)"
+        "$front_field": "$entry",
+        "$back_field": "$(look_up)"
       },
       "modelName": "$note_type",
       "deckName": "$target_deck",
