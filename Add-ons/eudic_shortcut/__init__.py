@@ -11,6 +11,7 @@ from aqt.qt import Qt
 
 config = mw.addonManager.getConfig(__name__)
 ENTRY_FIELD = config['ENTRY_FIELD']
+ENTRY_FIELDS = ENTRY_FIELD.split(',') if ENTRY_FIELD else []
 EUDIC_BUNDLE_ID = config['EUDIC_BUNDLE_ID']
 EUDIC_PROCESS_NAME = config['EUDIC_PROCESS_NAME']
 
@@ -27,11 +28,11 @@ def look_up_in_eudic(self):
         # Have to open twice. May be eudic's bug
         call("open -b '%s'" % EUDIC_BUNDLE_ID)
         call("open -b '%s'" % EUDIC_BUNDLE_ID)
-    try:
-        entry = self.card.note()[ENTRY_FIELD]
-    except KeyError:
+    note = self.card.note()
+    entries = [note[k] for k in ENTRY_FIELDS if k in note]
+    if not entries:
         return showInfo('Please set ENTRY_FIELD in Config.')
-    scpt = 'tell application id "%s" to show dic with word "%s"' % (EUDIC_BUNDLE_ID, entry)
+    scpt = 'tell application id "%s" to show dic with word "%s"' % (EUDIC_BUNDLE_ID, entries[0])
     call("osascript -e '%s'" % scpt)
 
 
