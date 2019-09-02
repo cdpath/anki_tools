@@ -125,7 +125,8 @@ check_result()
 ## main
 main()
 {
-    local definition=$(look_up $safe_entry)
+    local definition
+    definition=$(look_up $safe_entry) || exit 1
     payload=$(gen_post_data "$definition")
     res=$(curl -sX POST -d "$payload" "localhost:8765")
     check_result "$res" "$definition"
