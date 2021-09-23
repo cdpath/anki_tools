@@ -18,3 +18,4 @@ Anki Tools for Mac
 - [wizyoung/googletranslate.popclipext](https://github.com/wizyoung/googletranslate.popclipext) for `cocoaDialog`
 - [wweir/popclip_exts](https://github.com/wweir/popclip_exts) for Youdao API
 - [Using curl POST with variables defined in bash script functions](https://stackoverflow.com/a/17032673)
+- [CaiyunWiki](https://open.caiyunapp.com/Main_Page)

@@ -15,6 +15,8 @@
 			<true/>
 			<key>Title</key>
 			<string>Anki</string>
+			<key>After</key>
+			<string>show-status</string>
 		</dict>
 	</array>
 	<key>Options</key>
@@ -31,11 +33,33 @@
 			<string>multiple</string>
 			<key>Option Values</key>
 			<array>
-				<string>shanbay</string>
+				<string>caiyun</string>
 				<string>youdao</string>
 			</array>
+            <key>Option Value Labels</key>
+            <array>
+                <string>彩云小译</string>
+                <string>有道词典</string>
+            </array>
+			<key>Option Default Value</key>
+			<string>youdao</string>
 			<key>Option Description</key>
-			<string></string>
+			<string>choose Dictionary API</string>
+		</dict>
+		<dict>
+			<key>Option Identifier</key>
+			<string>api_token</string>
+			<key>Option Label</key>
+			<dict>
+				<key>en</key>
+				<string>API TOKEN</string>
+			</dict>
+			<key>Option Type</key>
+			<string>string</string>
+			<key>Option Default Value</key>
+			<string>3975l6lr5pcbvidl6jl2</string>
+			<key>Option Description</key>
+			<string>caiyun api token</string>
 		</dict>
 		<dict>
 			<key>Option Identifier</key>
@@ -50,7 +74,7 @@
 			<key>Option Default Value</key>
 			<string>Default</string>
 			<key>Option Description</key>
-			<string></string>
+			<string>choose Deck</string>
 		</dict>
 		<dict>
 			<key>Option Identifier</key>
@@ -63,9 +87,9 @@
 			<key>Option Type</key>
 			<string>string</string>
 			<key>Option Default Value</key>
-			<string>Basic</string>
+			<string>PopClip</string>
 			<key>Option Description</key>
-			<string></string>
+			<string>choose Note Type</string>
 		</dict>
 		<dict>
 			<key>Option Identifier</key>
@@ -80,7 +104,7 @@
 			<key>Option Default Value</key>
 			<string>Front</string>
 			<key>Option Description</key>
-			<string></string>
+			<string>choose Front Field</string>
 		</dict>
 		<dict>
 			<key>Option Identifier</key>
@@ -95,7 +119,22 @@
 			<key>Option Default Value</key>
 			<string>Back</string>
 			<key>Option Description</key>
-			<string></string>
+			<string>choose Back Field</string>
+		</dict>
+		<dict>
+			<key>Option Identifier</key>
+			<string>source_field</string>
+			<key>Option Label</key>
+			<dict>
+				<key>en</key>
+				<string>Source Field</string>
+			</dict>
+			<key>Option Type</key>
+			<string>string</string>
+			<key>Option Default Value</key>
+			<string>Source</string>
+			<key>Option Description</key>
+			<string>record the source</string>
 		</dict>
 		<dict>
 			<key>Option Identifier</key>
@@ -110,13 +149,13 @@
 			<key>Option Default Value</key>
 			<string>PopClip</string>
 			<key>Option Description</key>
-			<string></string>
+			<string>default tags</string>
 		</dict>
 	</array>
 	<key>Extension Description</key>
 	<string>Create a new Anki Note with selected word.</string>
 	<key>Extension Identifier</key>
-	<string>xyz.cdpath.anki</string>
+	<string>blog.jingyi.anki</string>
 	<key>Extension Name</key>
 	<string>Anki</string>
 	<key>Required Software Version</key>
