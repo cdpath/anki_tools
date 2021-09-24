@@ -19,6 +19,11 @@ tag=${POPCLIP_OPTION_TAG:-debug}
 app_tag=${POPCLIP_APP_NAME// /_} # replace spaces with underscore
 api_token=${POPCLIP_OPTION_API_TOKEN}
 
+if [[ -z "$POPCLIP_BROWSER_URL" ]]; then
+    browser_source_html=
+else
+    browser_source_html="<a href=\\\"${POPCLIP_BROWSER_URL}\\\">${POPCLIP_BROWSER_TITLE}</a>"
+fi
 
 ## Dictionary Services
 _caiyun()
@@ -83,7 +88,7 @@ gen_post_data()
       "fields": {
         "$front_field": "$entry",
         "$back_field": "$definition",
-        "$source_field": "<a href=\"${POPCLIP_BROWSER_URL}\">${POPCLIP_BROWSER_TITLE}</a>"
+        "$source_field": "$browser_source_html"
       },
       "modelName": "$note_type",
       "deckName": "$target_deck",
@@ -123,6 +128,7 @@ main()
     local definition
     definition=$(look_up $safe_entry) || exit 1
     payload=$(gen_post_data "$definition")
+    echo $payload >> /Users/jinzi/Developer/anki_tools/log
     res=$(curl -sX POST -d "$payload" "localhost:8765")
     check_result "$res" "$definition"
 }
