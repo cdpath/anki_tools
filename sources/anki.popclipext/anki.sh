@@ -63,7 +63,7 @@ look_up()
 
     if [[ -z "$definition" ]]; then
         echo "Word Not Found"
-        exit 2
+        exit 1
     else
         echo $definition
     fi
