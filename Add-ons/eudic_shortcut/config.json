@@ -1,5 +1,6 @@
 {
   "ENTRY_FIELD": "Front",
+  "CLOZE_FIELD": "Text",
   "EUDIC_BUNDLE_ID": "com.eusoft.eudic",
   "EUDIC_PROCESS_NAME": "Eudb_en"
 }

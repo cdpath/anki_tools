@@ -1,4 +1,4 @@
-import time
+import re
 from functools import partial
 from subprocess import check_call as _call, CalledProcessError
 
@@ -12,8 +12,10 @@ from aqt.qt import Qt
 config = mw.addonManager.getConfig(__name__)
 ENTRY_FIELD = config['ENTRY_FIELD']
 ENTRY_FIELDS = ENTRY_FIELD.split(',') if ENTRY_FIELD else []
+CLOZE_FIELD = config["CLOZE_FIELD"]
 EUDIC_BUNDLE_ID = config['EUDIC_BUNDLE_ID']
 EUDIC_PROCESS_NAME = config['EUDIC_PROCESS_NAME']
+VERBOSE = bool(int(config.get("VERBOSE", 0)))
 
 
 def look_up_in_eudic(self):
@@ -29,11 +31,22 @@ def look_up_in_eudic(self):
         call("open -b '%s'" % EUDIC_BUNDLE_ID)
         call("open -b '%s'" % EUDIC_BUNDLE_ID)
     note = self.card.note()
+
+    # try to get from ENTRY_FIELDS
     entries = [note[k] for k in ENTRY_FIELDS if k in note]
-    if not entries:
-        return showInfo('Please set ENTRY_FIELD in Config.')
-    scpt = 'tell application id "%s" to show dic with word "%s"' % (EUDIC_BUNDLE_ID, entries[0])
-    call("osascript -e '%s'" % scpt)
+    # then parse cloze
+    entries = entries or list(extract_c1_from_cloze(note))
+    if entries:
+        scpt = 'tell application id "%s" to show dic with word "%s"' % (EUDIC_BUNDLE_ID, entries[0])
+        call("osascript -e '%s'" % scpt)
+    elif VERBOSE:
+        showInfo('Please set ENTRY_FIELD in Config.')
+
+
+def extract_c1_from_cloze(note):
+    if CLOZE_FIELD and CLOZE_FIELD in note:
+        for cloze in re.findall(r'(?<=\{\{).+?(?=\}\})', note[CLOZE_FIELD]):
+            yield cloze.split('::')[1]
 
 
 def shortcutKeys(self):
