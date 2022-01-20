@@ -19,3 +19,5 @@ Anki Tools for Mac
 - [wweir/popclip_exts](https://github.com/wweir/popclip_exts) for Youdao API
 - [Using curl POST with variables defined in bash script functions](https://stackoverflow.com/a/17032673)
 - [CaiyunWiki](https://open.caiyunapp.com/Main_Page)
+- [Welcome to Alfred-Workflow — Alfred-Workflow 1.39.0 documentation](http://www.deanishe.net/alfred-workflow/index.html)
+- [FooSoft/anki-connect: Anki plugin to expose a remote API for creating flash cards.](https://github.com/FooSoft/anki-connect)
