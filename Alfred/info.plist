@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>blog.jingyi.as</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>4B53EE4B-7134-4733-BED0-DC3770592388</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C6BE889C-B44D-47B0-AB80-80ECB9516295</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6FEC269A-0B8D-4D6A-8EB7-ACE8CC75C39B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4B53EE4B-7134-4733-BED0-DC3770592388</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C6BE889C-B44D-47B0-AB80-80ECB9516295</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>jingyi</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Anki Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>text</key>
+				<string>Search in Anki</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.fallback</string>
+			<key>uid</key>
+			<string>6FEC269A-0B8D-4D6A-8EB7-ACE8CC75C39B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>as</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>/usr/bin/python anki.py "{query}" "$title_field"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>4B53EE4B-7134-4733-BED0-DC3770592388</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>query=$1
+
+URL="http://localhost:8765"
+
+J='{"action": "guiBrowse", "version": 6, "params": {"query": "cid:'$query'"}}'
+
+curl -sSL -XPOST $URL \
+     -H 'Content-Type: application/json' \
+     -d "$J"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C6BE889C-B44D-47B0-AB80-80ECB9516295</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Environment Variables:
+
+- title_field: use this field as Alfred result title</string>
+	<key>uidata</key>
+	<dict>
+		<key>4B53EE4B-7134-4733-BED0-DC3770592388</key>
+		<dict>
+			<key>xpos</key>
+			<integer>295</integer>
+			<key>ypos</key>
+			<integer>130</integer>
+		</dict>
+		<key>6FEC269A-0B8D-4D6A-8EB7-ACE8CC75C39B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>90</integer>
+			<key>ypos</key>
+			<integer>130</integer>
+		</dict>
+		<key>C6BE889C-B44D-47B0-AB80-80ECB9516295</key>
+		<dict>
+			<key>note</key>
+			<string>Open in Anki</string>
+			<key>xpos</key>
+			<integer>495</integer>
+			<key>ypos</key>
+			<integer>130</integer>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>title_field</key>
+		<string>Front</string>
+	</dict>
+	<key>version</key>
+	<string>0.0.1</string>
+	<key>webaddress</key>
+	<string>jingyi.blog</string>
+</dict>
+</plist>
