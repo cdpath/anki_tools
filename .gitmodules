@@ -1,0 +1,3 @@
+[submodule "Alfred/anki_search"]
+	path = Alfred/anki_search
+	url = git@github.com:cdpath/anki_search.git
