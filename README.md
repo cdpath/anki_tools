@@ -21,3 +21,4 @@ Anki Tools for Mac
 - [CaiyunWiki](https://open.caiyunapp.com/Main_Page)
 - [Welcome to Alfred-Workflow — Alfred-Workflow 1.39.0 documentation](http://www.deanishe.net/alfred-workflow/index.html)
 - [FooSoft/anki-connect: Anki plugin to expose a remote API for creating flash cards.](https://github.com/FooSoft/anki-connect)
+- [PopClip Snippets](https://www.popclip.app/dev/snippets)
